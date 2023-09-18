@@ -10,3 +10,9 @@ words.sort(key= lambda x : len(x)) # (오름차순이 기본이니까 짧은 순
 
 for word in words:
     print(word)
+
+
+
+# 출력 다른 방법
+while words:
+    print(words.pop(0))                         
