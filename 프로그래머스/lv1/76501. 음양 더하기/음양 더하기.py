@@ -13,3 +13,8 @@ def solution(absolutes, signs):
 
     return sum
 
+
+# 다른 풀이 (컴프리헨션)
+
+def solution(absolutes, signs):
+    return sum(absolutes if sign else -absolutes for absolutes, sign in zip(absolutes, signs))
