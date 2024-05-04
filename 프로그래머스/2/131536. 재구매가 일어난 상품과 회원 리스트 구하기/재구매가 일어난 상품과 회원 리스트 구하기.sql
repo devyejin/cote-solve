@@ -7,3 +7,15 @@ WHERE 1 = 1
 GROUP BY USER_ID, PRODUCT_ID
 HAVING COUNT(*) >= 2
 ORDER BY USER_ID , PRODUCT_ID DESC;
+
+
+-- COUNT(*)의 경우, 테이블의 모든 행을 카운트
+-- COUNT(1)의 경우, 결과 행을 세는데 사용되는 상수 1을 카운트 -> 좀 더 성능상 빠름
+SELECT
+      USER_ID
+    , PRODUCT_ID
+FROM ONLINE_SALE 
+WHERE 1 = 1
+GROUP BY USER_ID, PRODUCT_ID
+HAVING COUNT(1) >= 2
+ORDER BY USER_ID , PRODUCT_ID DESC;
