@@ -1,0 +1,31 @@
+--  대여 시작일을 기준으로 2022년 8월부터 2022년 10월까지 총 대여 횟수가 5회 이상인 자동차
+-- 해당 기간 동안의 월별 자동차 ID 별 총 대여 횟수(컬럼명: RECORDS) 리스트
+-- 기간 필터링 -> 월별 -> car_id별 집계
+WITH TEMP(MONTH, CAR_ID, RECORDS)
+AS
+(
+SELECT 
+         EXTRACT(MONTH FROM START_DATE) MONTH,
+         CAR_ID,
+         COUNT(1) RECORDS
+FROM CAR_RENTAL_COMPANY_RENTAL_HISTORY
+WHERE START_DATE BETWEEN TO_DATE('2022-08-01', 'YYYY-MM-DD') AND TO_DATE('2022-10-31', 'YYYY-MM-DD')
+GROUP BY EXTRACT(MONTH FROM START_DATE), CAR_ID
+HAVING COUNT(1) != 0
+ORDER BY MONTH, CAR_ID
+)
+SELECT 
+    MONTH,
+    CAR_ID,
+    SUM(RECORDS) AS TOTAL_RECORDS
+FROM 
+    TEMP
+GROUP BY 
+    MONTH, CAR_ID
+HAVING 
+    MONTH IN (8,9,10)
+    AND CAR_ID IN (
+                    SELECT CAR_ID FROM TEMP
+                    GROUP BY CAR_ID HAVING SUM(RECORDS) >= 5
+                   )
+ORDER BY MONTH, CAR_ID DESC;
