@@ -1,5 +1,5 @@
 -- 코드를 입력하세요
--- CAR_ID별로 여러 대여 기록이 존재, 가장 최근 상태로 표시 -> 서브쿼리
+-- Oracle
 SELECT
     CAR_ID,
     MAX(
@@ -8,6 +8,36 @@ SELECT
             ELSE '대여 가능'
         END
     ) AS AVAILABILITY  
+FROM CAR_RENTAL_COMPANY_RENTAL_HISTORY 
+GROUP BY CAR_ID
+ORDER BY CAR_ID DESC;
+
+
+-- SELECT부분에서 매번 CASE WHEN 타는건 성능에 비효율적 , 조인 이용
+SELECT
+    TEMP.CAR_ID,
+    MAX(TEMP.AVAILABILITY) AS AVAILABILITY
+FROM(
+    SELECT
+        CAR_ID,
+        CASE
+                WHEN TO_DATE('2022-10-16', 'YYYY-MM-DD') BETWEEN START_DATE AND END_DATE THEN '대여중'
+                ELSE '대여 가능'
+        END AS AVAILABILITY  
+    FROM CAR_RENTAL_COMPANY_RENTAL_HISTORY 
+) TEMP
+GROUP BY TEMP.CAR_ID
+ORDER BY TEMP.CAR_ID DESC;
+
+
+
+
+--MySQL의 경우 IF함수 가능, Oracle은 미지원해서 CASE WHEN 구문 처리
+--MySQL의 경우
+-- 코드를 입력하세요
+SELECT
+    CAR_ID,
+    MAX(IF('2022-10-16' BETWEEN START_DATE AND END_DATE, '대여중', '대여 가능')) AS AVAILABILITY
 FROM CAR_RENTAL_COMPANY_RENTAL_HISTORY 
 GROUP BY CAR_ID
 ORDER BY CAR_ID DESC;
