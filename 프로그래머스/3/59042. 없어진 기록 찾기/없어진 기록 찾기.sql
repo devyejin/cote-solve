@@ -1,6 +1,18 @@
 -- 코드를 입력하세요
 -- ANIMAL_OUTS 에는 있는데  ANIMAL_INS에는 없는 ANIMAL_ID값, O.NAME 이렇게 출력
 -- ->당연히 레코드별로 도는건 비효율적이고, outer join으로 처리
+SELECT 
+       O.ANIMAL_ID
+     , O.NAME
+FROM ANIMAL_OUTS O
+LEFT OUTER JOIN ANIMAL_INS I ON O.ANIMAL_ID = I.ANIMAL_ID
+WHERE 1 = 1
+AND I.ANIMAL_ID IS NULL
+AND O.ANIMAL_ID IS NOT NULL
+ORDER BY O.ANIMAL_ID, O.NAME;
+
+
+-- NOT EXISTS를 활용하면 가독성이 더 높음 !
 SELECT O.ANIMAL_ID
       ,O.NAME
 FROM ANIMAL_OUTS O
