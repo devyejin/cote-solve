@@ -17,3 +17,18 @@ FROM (
     )
 )
 WHERE rn <= 3;
+
+
+
+-- FETCH FIRST N ROWS ONLY; 구문 이용법 (상위 N개 선택)
+SELECT
+    FLAVOR
+FROM
+    (
+        SELECT * FROM JULY
+        UNION ALL
+        SELECT * FROM FIRST_HALF
+    )  U
+GROUP BY U.FLAVOR
+ORDER BY SUM(TOTAL_ORDER) DESC
+FETCH FIRST 3 ROWS ONLY;
