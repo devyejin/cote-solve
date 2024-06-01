@@ -17,13 +17,15 @@ def bfs(root_v):
     Q = deque()
     Q.append(root_v) #처음 방문 vertex 넣고 시작
     visited = [] #방문 기록용
+    visited_check = set() #방문 확인용
     
     while Q:
         current = Q.popleft()
-        if current not in visited:
+        if current not in visited_check:
             visited.append(current) #방문
+            visited_check.add(current) #방문 체크
         for destination in range(V+1): #현재 노드가 방문할 수 있는 곳 -> Queue에 넣기
-            if adj_matrix[current][destination] == 1 and destination not in visited:
+            if adj_matrix[current][destination] == 1 and destination not in visited_check:
                 Q.append(destination)
     
     return visited
