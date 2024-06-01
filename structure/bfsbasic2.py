@@ -1,17 +1,19 @@
 import sys
-from collections import deque
+from collections import deque, defaultdict
 
-#인접 행렬로 구현
+#인접행렬 -> 인접리스트(딕셔너리)
 input = sys.stdin.readline
 
-V, E = map(int,input().split()) 
+V, E = map(int, input().split())
 
-adj_matrix = [[0] * (V+1) for _ in range(V+1)]
+adj_list = defaultdict(list) #기본값이 빈 리스트인 딕셔너리 생성
 
 for _ in range(E):
     start, end = map(int, input().split())
-    adj_matrix[start][end] = 1
-    adj_matrix[end][start] = 1
+    adj_list[start].append(end) # key가 start인 value에 end값 넣어줌
+    adj_list[end].append(start)
+
+# print(adj_list)
 
 def bfs(root_v):
     Q = deque()
@@ -24,9 +26,9 @@ def bfs(root_v):
         if current not in visited_check:
             visited.append(current) #방문
             visited_check.add(current) #방문 체크
-        for destination in range(V+1): #현재 노드가 방문할 수 있는 곳 -> Queue에 넣기
-            if adj_matrix[current][destination] == 1 and destination not in visited_check:
-                Q.append(destination)
+            for destination in adj_list[current]:
+                if destination not in visited_check:
+                    Q.append(destination)
     
     return visited
             
