@@ -10,6 +10,7 @@ This is a auto push repository for Baekjoon Online Judge created with [BaekjoonH
 |  |
 | ------- |
 | [0200-number-of-islands](https://github.com/devyejin/cote-solve/tree/master/0200-number-of-islands) |
+| [1171-shortest-path-in-binary-matrix](https://github.com/devyejin/cote-solve/tree/master/1171-shortest-path-in-binary-matrix) |
 # Depth-First Search
 |  |
 | ------- |
@@ -18,6 +19,7 @@ This is a auto push repository for Baekjoon Online Judge created with [BaekjoonH
 |  |
 | ------- |
 | [0200-number-of-islands](https://github.com/devyejin/cote-solve/tree/master/0200-number-of-islands) |
+| [1171-shortest-path-in-binary-matrix](https://github.com/devyejin/cote-solve/tree/master/1171-shortest-path-in-binary-matrix) |
 # Union Find
 |  |
 | ------- |
@@ -26,3 +28,4 @@ This is a auto push repository for Baekjoon Online Judge created with [BaekjoonH
 |  |
 | ------- |
 | [0200-number-of-islands](https://github.com/devyejin/cote-solve/tree/master/0200-number-of-islands) |
+| [1171-shortest-path-in-binary-matrix](https://github.com/devyejin/cote-solve/tree/master/1171-shortest-path-in-binary-matrix) |
