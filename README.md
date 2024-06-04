@@ -10,6 +10,7 @@ This is a auto push repository for Baekjoon Online Judge created with [BaekjoonH
 |  |
 | ------- |
 | [0200-number-of-islands](https://github.com/devyejin/cote-solve/tree/master/0200-number-of-islands) |
+| [0747-min-cost-climbing-stairs](https://github.com/devyejin/cote-solve/tree/master/0747-min-cost-climbing-stairs) |
 | [1171-shortest-path-in-binary-matrix](https://github.com/devyejin/cote-solve/tree/master/1171-shortest-path-in-binary-matrix) |
 # Depth-First Search
 |  |
@@ -35,3 +36,7 @@ This is a auto push repository for Baekjoon Online Judge created with [BaekjoonH
 |  |
 | ------- |
 | [0871-keys-and-rooms](https://github.com/devyejin/cote-solve/tree/master/0871-keys-and-rooms) |
+# Dynamic Programming
+|  |
+| ------- |
+| [0747-min-cost-climbing-stairs](https://github.com/devyejin/cote-solve/tree/master/0747-min-cost-climbing-stairs) |
