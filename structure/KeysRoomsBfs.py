@@ -17,7 +17,7 @@ class Solution:
                         queue.append(next_v) #방문예약
                         visited[next_v] = True #방문 기록
             
-        bfs(0)
+        dfs(0)
 
         return all(visited) #all(iterable객체) : iterable 객체의 모든 요소가 True인지 확인 O(n)
         
