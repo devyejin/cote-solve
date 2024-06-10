@@ -1,16 +1,18 @@
 def permute(N):
-    def backtrack(curr):
+    def backtrack(curr, used):
         if len(curr) == N:
             print(" ".join(map(str,curr)))
             return
         
         for i in range(1, N+1):
-            if i not in curr:
+            if i not in used:
                 curr.append(i)
-                backtrack(curr)
+                used.add(i) #방문 여부 기록
+                backtrack(curr,used)
                 curr.pop()
-        
-    backtrack([])
+                used.remove(i)#방문 여부 삭제
+    
+    backtrack([],set())
 
 N = int(input())
 permute(N)
