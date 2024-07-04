@@ -16,8 +16,8 @@ result = 0
 count = (M // (K+1)) * K
 count += M % (K+1)
 
-#두번째로 큰 수는 M -count 번
 result += (count) * first
+#두번째로 큰 수는 M -count 번
 result += (M-count) * second
 
 print(result)
