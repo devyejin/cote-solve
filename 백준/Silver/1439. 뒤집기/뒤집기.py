@@ -1,19 +1,16 @@
-data = input()
-count0 = 0 #0으로 바꾸는 경우
-count1 = 0 #1로 바꾸는 경우
+import sys
+input = sys.stdin.readline
 
-#idx=0은 prev값이 없으니까 초기값은 직접 체크
-if data[0] == '0':
-    count1 += 1
-else:
-    count0 += 1
+word = input().rstrip()
 
-#나머지부분 check, prev랑 값이 다르면 변경되는 지점
-for i in range(len(data) - 1):
-    if data[i] != data[i+1]:
-        if data[i+1] == '0':
-            count1 += 1
-        else:
-            count0 += 1
+cnt_info = {'0':0, '1':0} #'0' : '0'이라 '1'로 바꾸는 횟수
 
-print(min(count0, count1))
+now = word[0]
+cnt_info[now] += 1
+
+for num in word:
+    if now != num: #이전값과 현재값이 다르다면
+        cnt_info[num] += 1
+        now = num
+
+print(min(cnt_info.values()))
