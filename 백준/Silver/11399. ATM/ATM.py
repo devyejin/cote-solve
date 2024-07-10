@@ -1,10 +1,17 @@
+import sys
+
+input = sys.stdin.readline
+
 n = int(input())
-time = sorted(map(int, input().split()))
-result = []
-accum = 0
+p = list(map(int, input().split()))
 
-for i in time:
-    accum += i
-    result.append(accum)
+p.sort()
 
-print(sum(result))
+times = [0] * n
+current_time = 0
+
+for i in range(n):
+    current_time += p[i]
+    times[i] = current_time
+    
+print(sum(times))
