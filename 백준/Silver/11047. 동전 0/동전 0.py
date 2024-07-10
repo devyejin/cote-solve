@@ -1,15 +1,21 @@
+import sys
 
-N, K = map(int,input().split())
-unit = []
-count = 0
+input = sys.stdin.readline
 
-for _ in range(N):
-    unit.append(int(input()))
+n, k = map(int, input().strip().split())
+coins = []
+for _ in range(n):
+    coins.append(int(input()) * -1)
+coins.sort()
+coins = [-coin for coin in coins]
 
-unit = unit[::-1]
 
-for coin in unit:
-    count += K // coin
-    K %= coin
+result = 0
 
-print(count)
+for coin in coins:
+    if k >= coin:
+        result += k // coin
+        k %= coin
+        
+
+print(result)
