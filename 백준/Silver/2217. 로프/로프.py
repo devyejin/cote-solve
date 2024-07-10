@@ -10,10 +10,11 @@ for _ in range(n):
 
 ropes.sort() #O(nlogn)
 
-weights = []
+max_weight = 0
 
-for rope in ropes:
-    weights.append(rope * n)
-    n -= 1
+for i in range(n): # O(n)
+    current_weight = ropes[i] * (n - i)
+    if current_weight > max_weight:
+        max_weight = current_weight
 
-print(max(weights))
+print(max_weight)
