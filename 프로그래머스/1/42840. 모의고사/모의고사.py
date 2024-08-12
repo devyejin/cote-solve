@@ -1,25 +1,26 @@
+from itertools import cycle
+
 def solution(answers):
+    result = []
     n = len(answers)
-
+    
     patterns = [
-        [1,2,3,4,5],
-        [2, 1, 2, 3, 2, 4, 2, 5],
-        [ 3, 3, 1, 1, 2, 2, 4, 4, 5, 5]
+        cycle([1,2,3,4,5]),
+        cycle([2, 1, 2, 3, 2, 4, 2, 5]),
+        cycle([ 3, 3, 1, 1, 2, 2, 4, 4, 5, 5])
     ]
-
-    scores = [0] * 3
     
-    for i, answer in enumerate(answers):
-        for j, pattern in enumerate(patterns):
-            if answer == pattern[i % len(pattern)]:
-                scores[j] += 1
+    scores = [0] * len(patterns)
     
-    max_score = max(scores)
+    for answer in answers:
+        for i in range(len(patterns)):
+            if answer == next(patterns[i]):
+                scores[i] += 1
     
-    #가장 높은 점수를 가진 수포자번호 찾기
-    highest_scores = []
+    highest = max(scores)
+    
     for idx, score in enumerate(scores):
-        if score == max_score:
-            highest_scores.append(idx+1)
+        if highest == score:
+            result.append(idx+1)
     
-    return highest_scores
+    return result
