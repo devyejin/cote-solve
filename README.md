@@ -60,3 +60,14 @@ This is a auto push repository for Baekjoon Online Judge created with [BaekjoonH
 |  |
 | ------- |
 | [0744-network-delay-time](https://github.com/devyejin/cote-solve/tree/master/0744-network-delay-time) |
+<!---LeetCode Topics Start-->
+# LeetCode Topics
+## Array
+|  |
+| ------- |
+| [0001-two-sum](https://github.com/devyejin/cote-solve/tree/master/0001-two-sum) |
+## Hash Table
+|  |
+| ------- |
+| [0001-two-sum](https://github.com/devyejin/cote-solve/tree/master/0001-two-sum) |
+<!---LeetCode Topics End-->
