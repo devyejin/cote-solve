@@ -1,7 +1,17 @@
-from collections import Counter
 
-words1 = Counter(input())
-words2 = Counter(input())
+alpha = 'abcdefghijklmnopqrstuvwxyz'
+dic = {}
+answer = 0
+for char in alpha:
+  dic[char] = 0
 
-# print(words1-words2)
-print(sum(((words1-words2)+(words2-words1)).values()))
+for char in input():
+  dic[char] += 1
+
+for char in input():
+  dic[char] -= 1
+
+for key in dic:
+  answer += abs(dic[key])
+
+print(answer)
